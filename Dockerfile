@@ -1,5 +1,7 @@
 FROM phusion/baseimage:0.9.22
 
+LABEL org.label-schema.vcs-url="https://github.com/nullderef/phpmyadmin"
+
 ENV PHPMYADMIN_LANG=all-languages
 ENV PHPMYADMIN_VER=4.7.5
 ENV PHPMYADMIN_FILE=phpMyAdmin-$PHPMYADMIN_VER-$PHPMYADMIN_LANG.tar.gz
