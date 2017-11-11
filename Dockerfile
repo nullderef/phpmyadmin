@@ -25,13 +25,12 @@ RUN wget https://files.phpmyadmin.net/phpMyAdmin/4.7.5/$PHPMYADMIN_FILE -P /root
     mv /phpmyadmin/phpMyAdmin-$PHPMYADMIN_VER-$PHPMYADMIN_LANG /phpmyadmin/html
 
 COPY ./data/default /etc/nginx/sites-available/default
-COPY ./data/config.inc.php /phpmyadmin/config/
+COPY ./data/config.inc.php /phpmyadmin/
 
 RUN ln -s /phpmyadmin/html /var/www && ln -s /phpmyadmin/config/config.inc.php /phpmyadmin/html
 
 RUN chown -R www-data:www-data /phpmyadmin && \ 
-    chown -h www-data:www-data /var/www/html && \
-    chown -h www-data:www-data /phpmyadmin/config/config.inc.php
+    chown -h www-data:www-data /var/www/html
 
 RUN mkdir -p /etc/my_init.d
 COPY data/docker-startup.sh /etc/my_init.d/docker-startup.sh
