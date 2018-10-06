@@ -22,7 +22,7 @@ RUN mkdir -p /phpmyadmin && \
     mkdir -p /phpmyadmin/config && \
     rm -rf /var/www/html
 
-RUN wget https://files.phpmyadmin.net/phpMyAdmin/4.7.5/$PHPMYADMIN_FILE -P /root && \ 
+RUN wget https://files.phpmyadmin.net/phpMyAdmin/$PHPMYADMIN_VER/$PHPMYADMIN_FILE -P /root && \ 
     tar -xvzf /root/$PHPMYADMIN_FILE -C /phpmyadmin && \
     mv /phpmyadmin/phpMyAdmin-$PHPMYADMIN_VER-$PHPMYADMIN_LANG /phpmyadmin/html
 
